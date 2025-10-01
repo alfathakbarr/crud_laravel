@@ -36,7 +36,7 @@
                             <tbody>
                                 @forelse ($mataKuliahs as $mk)
                                     <tr>
-                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ ($mataKuliahs->currentPage() - 1) * $mataKuliahs->perPage() + $loop->iteration }}</td>
                                         <td>MK{{ str_pad($mk->id, 3, '0', STR_PAD_LEFT) }}</td>
                                         <td>{{ $mk->nama }}</td>
                                         <td class="text-center">{{ $mk->sks }}</td>
@@ -65,8 +65,11 @@
                         </table>
                     </div>
                     
-                    <div class="d-flex justify-content-end mt-3">
-                        {{ $mataKuliahs->links() }}
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <p class="text-muted small mb-0">
+                            Showing {{ $mataKuliahs->firstItem() ?? 0 }} to {{ $mataKuliahs->lastItem() ?? 0 }} of {{ $mataKuliahs->total() }} entries
+                        </p>
+                        {{ $mataKuliahs->onEachSide(1)->links() }}
                     </div>
                 </div>
             </div>

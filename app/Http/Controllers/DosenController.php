@@ -10,18 +10,17 @@ class DosenController extends Controller
 
     public function index(Request $request)
     {
-        $q = $request->query('q');
-        $items = Dosen::query()
-            ->when($q, function ($query) use ($q) {
-                $sub = $query->where(function ($sub) use ($q) {
-                    $sub->where('nama', 'like', "%{$q}%")
-                        ->orWhere('email', 'like', "%{$q}%");
-                });
+        $search = $request->query('search');
+        $dosens = Dosen::query()
+            ->when($search, function ($query) use ($search) {
+                return $query->where('nama', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('nip', 'like', "%{$search}%");
             })
             ->latest()
             ->paginate(10)
             ->withQueryString();
-        return view('dosen.index', compact('items', 'q'));
+        return view('dosen.index', compact('dosens', 'search'));
     }
 
     public function create()

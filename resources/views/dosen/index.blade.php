@@ -60,7 +60,7 @@
                                         <td>{{ $dosen->nip }}</td>
                                         <td>{{ $dosen->nama }}</td>
                                         <td>{{ $dosen->email }}</td>
-                                        <td>{{ $dosen->phone }}</td>
+                                        <td>{{ $dosen->no_telepon }}</td>
                                         <td class="text-center">
                                             <div class="btn-group" role="group">
                                                 <a href="{{ route('dosen.edit', $dosen->id) }}" 

@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('nip', 18)->unique();
             $table->string('email')->unique();
+            $table->string('no_telepon', 15);
             $table->timestamps();
         });
     }

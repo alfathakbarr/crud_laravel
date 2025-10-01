@@ -10,6 +10,23 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
+    <style>
+        .pagination {
+            --bs-pagination-color: #198754;
+            --bs-pagination-active-bg: #198754;
+            --bs-pagination-active-border-color: #198754;
+        }
+        .page-link {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        .pagination-lg .page-link {
+            font-size: 1.25rem;
+        }
+        .pagination-sm .page-link {
+            font-size: 0.75rem;
+        }
+    </style>
     @stack('styles')
 </head>
 <body>

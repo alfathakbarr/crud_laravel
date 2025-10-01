@@ -15,7 +15,7 @@ class Dosen extends Model
         'nip',
         'nama',
         'email',
-        'phone'
+        'no_telepon'
     ];
     
     protected $guarded = ['id'];

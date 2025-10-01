@@ -13,10 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Buat 10 Dosen
-        $dosens = Dosen::factory(10)->create();
+        // Seed Dosen terlebih dahulu
+        $this->call(DosenSeeder::class);
+        
+        // Get all dosen for reference
+        $dosens = Dosen::all();
 
-        // Buat 50 MataKuliah dan assign ke Dosen secara acak
+        // Buat 50 MataKuliah dan assign ke Dosen yang sudah ada
         MataKuliah::factory(50)->make()->each(function ($mk) use ($dosens) {
             $mk->dosen_id = $dosens->random()->id;
             $mk->save();
