@@ -10,7 +10,7 @@ class MataKuliah extends Model
     /** @use HasFactory<\Database\Factories\MataKuliahFactory> */
     use HasFactory;
 
-    protected $fillable = ['nama', 'sks', 'dosen_id'];
+    protected $fillable = ['kode_mk', 'nama', 'sks', 'dosen_id'];
 
     public function dosen()
     {

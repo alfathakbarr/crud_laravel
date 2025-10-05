@@ -11,7 +11,7 @@
                     </h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('mata-kuliah.store') }}" method="POST">
+                    <form action="{{ route('mata_kuliah.store') }}" method="POST">
                         @csrf
                         
                         <div class="mb-3">
@@ -33,14 +33,22 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="nama_mk" class="form-label">Nama Mata Kuliah</label>
-                            <input type="text" class="form-control @error('nama_mk') is-invalid @enderror" 
-                                id="nama_mk" name="nama_mk" value="{{ old('nama_mk') }}" required>
-                            @error('nama_mk')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <label for="nama" class="form-label fw-bold">
+                                <i class="fas fa-book me-1"></i>Nama Mata Kuliah
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-book"></i>
+                                </span>
+                                <input type="text" class="form-control form-control-lg @error('nama') is-invalid @enderror" 
+                                    id="nama" name="nama" value="{{ old('nama') }}" 
+                                    required placeholder="Masukkan nama mata kuliah">
+                                @error('nama')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -66,25 +74,32 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="dosen_id" class="form-label">Dosen Pengampu</label>
-                            <select class="form-select @error('dosen_id') is-invalid @enderror" 
-                                id="dosen_id" name="dosen_id" required>
-                                <option value="">Pilih Dosen</option>
-                                @foreach($dosens as $dosen)
-                                    <option value="{{ $dosen->id }}" {{ old('dosen_id') == $dosen->id ? 'selected' : '' }}>
-                                        {{ $dosen->nama }} ({{ $dosen->nip }})
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('dosen_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <label for="dosen_id" class="form-label fw-bold">
+                                <i class="fas fa-user-tie me-1"></i>Dosen Pengampu
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-user-tie"></i>
+                                </span>
+                                <select class="form-select form-select-lg @error('dosen_id') is-invalid @enderror" 
+                                    id="dosen_id" name="dosen_id" required>
+                                    <option value="">Pilih Dosen Pengampu</option>
+                                    @foreach($dosens as $dosen)
+                                        <option value="{{ $dosen->id }}" {{ old('dosen_id') == $dosen->id ? 'selected' : '' }}>
+                                            {{ $dosen->nama }} (NIP: {{ $dosen->nip }})
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('dosen_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-end gap-2">
-                            <a href="{{ route('mata-kuliah.index') }}" class="btn btn-secondary">
+                            <a href="{{ route('mata_kuliah.index') }}" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left me-1"></i>Kembali
                             </a>
                             <button type="submit" class="btn btn-success">

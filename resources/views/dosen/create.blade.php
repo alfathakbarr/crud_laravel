@@ -33,10 +33,36 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" 
-                                id="nama" name="nama" value="{{ old('nama') }}" required>
-                            @error('nama')
+                            <label for="nama" class="form-label fw-bold">
+                                <i class="fas fa-user me-1"></i>Nama Lengkap
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control form-control-lg @error('nama') is-invalid @enderror" 
+                                    id="nama" name="nama" value="{{ old('nama') }}" 
+                                    required placeholder="Masukkan nama lengkap">
+                                @error('nama')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">
+                                <i class="fas fa-envelope me-1"></i>Email
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" 
+                                    id="email" name="email" value="{{ old('email') }}" 
+                                    required placeholder="Masukkan alamat email">
+                                @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -44,25 +70,22 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                id="email" name="email" value="{{ old('email') }}" required>
-                            @error('email')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">No. Telepon</label>
-                            <input type="tel" class="form-control @error('phone') is-invalid @enderror" 
-                                id="phone" name="phone" value="{{ old('phone') }}" required>
-                            @error('phone')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <label for="no_telepon" class="form-label fw-bold">
+                                <i class="fas fa-phone me-1"></i>No. Telepon
+                            </label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <input type="tel" class="form-control form-control-lg @error('no_telepon') is-invalid @enderror" 
+                                    id="no_telepon" name="no_telepon" value="{{ old('no_telepon') }}" 
+                                    required placeholder="Masukkan nomor telepon">
+                                @error('no_telepon')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-end gap-2">

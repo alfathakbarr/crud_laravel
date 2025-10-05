@@ -47,9 +47,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone" class="form-label">No. Telepon</label>
-                            <input type="tel" class="form-control @error('phone') is-invalid @enderror" 
-                                id="phone" name="phone" value="{{ old('phone', $dosen->phone) }}" required>
+                            <label for="no_telepon" class="form-label">No. Telepon</label>
+                            <input type="tel" class="form-control @error('no_telepon') is-invalid @enderror" 
+                                id="no_telepon" name="no_telepon" value="{{ old('no_telepon', $dosen->no_telepon) }}" required>
                             @error('phone')
                                 <div class="invalid-feedback">
                                     {{ $message }}

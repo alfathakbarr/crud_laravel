@@ -31,8 +31,10 @@ class DosenController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'nip' => 'required|string|max:18|unique:dosens,nip',
             'nama' => 'required|string|max:100',
             'email' => 'required|email|unique:dosens,email',
+            'no_telepon' => 'required|string|max:15',
         ]);
 
         Dosen::create($data);
@@ -45,16 +47,19 @@ class DosenController extends Controller
      */
     public function edit(string $id)
     {
+        $dosen = Dosen::findOrFail($id);
         return view('dosen.edit', compact('dosen'));
     }
 
     public function update(Request $request, string $id)
     {
+        $dosen = Dosen::findOrFail($id);
         $data = $request->validate([
+            'nip' => 'required|string|max:18|unique:dosens,nip,'.$dosen->id,
             'nama' => 'required|string|max:100',
             'email' => 'required|email|unique:dosens,email,'.$dosen->id,
+            'no_telepon' => 'required|string|max:15',
         ]);
-
         $dosen->update($data);
         return redirect()->route('dosen.index')->with('success', 'Dosen berhasil diperbarui.');
     }

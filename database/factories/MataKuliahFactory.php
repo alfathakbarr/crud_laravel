@@ -16,10 +16,11 @@ class MataKuliahFactory extends Factory
      */
     public function definition(): array
     {
+        static $number = 1;
         return [
-            'nama' => ucfirst($this->faker->unique()->words(2, true)), //contoh
+            'kode_mk' => 'MK' . str_pad($number++, 3, '0', STR_PAD_LEFT),
+            'nama' => ucfirst($this->faker->unique()->words(2, true)),
             'sks' => $this->faker->numberBetween(2, 4),
-    //JANGAN BUAT SET 'dosen_id' SUPAYA TIDAK MEMBUAT DOSEN BARU OTOMATIS
         ];
     }
 }

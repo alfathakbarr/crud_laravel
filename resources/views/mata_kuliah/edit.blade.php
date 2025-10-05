@@ -9,7 +9,7 @@
                     <h5 class="mb-0">Edit Mata Kuliah</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('mata-kuliah.update', $mataKuliah->id) }}" method="POST">
+                    <form action="{{ route('mata_kuliah.update', $mataKuliah->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         
@@ -23,12 +23,11 @@
                                 </div>
                             @enderror
                         </div>
-
                         <div class="mb-3">
-                            <label for="nama_mk" class="form-label">Nama Mata Kuliah</label>
-                            <input type="text" class="form-control @error('nama_mk') is-invalid @enderror" 
-                                id="nama_mk" name="nama_mk" value="{{ old('nama_mk', $mataKuliah->nama_mk) }}" required>
-                            @error('nama_mk')
+                            <label for="nama" class="form-label">Nama Mata Kuliah</label>
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" 
+                                id="nama" name="nama" value="{{ old('nama', $mataKuliah->nama) }}" required>
+                            @error('nama')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -66,7 +65,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end gap-2">
-                            <a href="{{ route('mata-kuliah.index') }}" class="btn btn-secondary">
+                            <a href="{{ route('mata_kuliah.index') }}" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left me-1"></i>Kembali
                             </a>
                             <button type="submit" class="btn btn-success">

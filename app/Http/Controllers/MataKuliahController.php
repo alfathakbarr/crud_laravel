@@ -37,26 +37,32 @@ class MataKuliahController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'kode_mk' => 'required|string|max:10|unique:mata_kuliahs,kode_mk',
             'nama' => 'required|string|max:100',
             'sks' => 'required|integer|min:1|max:6',
             'dosen_id' => 'required|exists:dosens,id',
         ]);
+        
         MataKuliah::create($data);
         return redirect()->route('mata_kuliah.index')->with('success', 'Mata Kuliah berhasil ditambahkan.');
     }
 
     public function edit(MataKuliah $mata_kuliah)
     {
-        $dosens = Dosen::orderBy('nama')->get(['id', 'nama']);
-        return view('mata_kuliah.edit', compact('mata_kuliah', 'dosens'));
+        $dosens = Dosen::orderBy('nama')->get(['id', 'nama', 'nip']);
+        return view('mata_kuliah.edit', [
+            'mataKuliah' => $mata_kuliah,
+            'dosens' => $dosens
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Matakuliah $mata_kuliah)
+    public function update(Request $request, MataKuliah $mata_kuliah)
     {
         $data = $request->validate([
+            'kode_mk' => 'required|string|max:10|unique:mata_kuliahs,kode_mk,'.$mata_kuliah->id,
             'nama' => 'required|string|max:100',
             'sks' => 'required|integer|min:1|max:6',
             'dosen_id' => 'required|exists:dosens,id',
