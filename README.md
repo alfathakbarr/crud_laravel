@@ -29,7 +29,98 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## CRUD Laravel - Aplikasi Manajemen Data Dosen dan Mata Kuliah
+
+Aplikasi web sederhana untuk manajemen data dosen dan mata kuliah menggunakan Laravel 10.
+
+## Teknologi yang Digunakan
+
+- PHP 8.2
+- Laravel 10.x
+- MySQL/MariaDB
+- Bootstrap 5
+
+## Fitur
+
+- Manajemen Data Dosen (CRUD)
+  - Tambah, edit, hapus data dosen
+  - Pencarian dosen berdasarkan nama/NIP/email
+- Manajemen Data Mata Kuliah (CRUD)
+  - Tambah, edit, hapus mata kuliah
+  - Filter mata kuliah berdasarkan dosen pengampu
+  - Pencarian mata kuliah berdasarkan nama
+
+## Instalasi
+
+1. Clone repository ini
+```bash
+git clone https://github.com/alfathakbarr/crud_laravel.git
+cd crud_laravel
+```
+
+2. Install dependencies
+```bash
+composer install
+```
+
+3. Salin file .env.example menjadi .env
+```bash
+cp .env.example .env
+```
+
+4. Generate application key
+```bash
+php artisan key:generate
+```
+
+5. Konfigurasi database di file .env
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crud_laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+6. Jalankan migrasi dan seeder
+```bash
+php artisan migrate --seed
+```
+
+7. Jalankan development server
+```bash
+php artisan serve
+```
+
+8. Buka aplikasi di browser: http://localhost:8000
+
+## Penggunaan
+
+### Manajemen Dosen
+- Akses menu Dosen untuk melihat daftar dosen
+- Gunakan tombol "Tambah Dosen" untuk menambah data baru
+- Klik tombol edit/hapus untuk mengubah/menghapus data
+- Gunakan kolom pencarian untuk mencari dosen
+
+### Manajemen Mata Kuliah
+- Akses menu Mata Kuliah untuk melihat daftar mata kuliah
+- Gunakan tombol "Tambah Mata Kuliah" untuk menambah data baru
+- Klik tombol edit/hapus untuk mengubah/menghapus data
+- Gunakan filter dosen untuk melihat mata kuliah per dosen
+- Gunakan kolom pencarian untuk mencari mata kuliah
+
+## Kontribusi
+
+1. Fork repository ini
+2. Buat branch baru (`git checkout -b fitur-baru`)
+3. Commit perubahan (`git commit -am 'Menambahkan fitur baru'`)
+4. Push ke branch (`git push origin fitur-baru`)
+5. Buat Pull Request
+
+## Lisensi
+
+MIT License. Lihat file [LICENSE](LICENSE) untuk detail lebih lanjut. Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
